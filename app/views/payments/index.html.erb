@@ -18,7 +18,7 @@
 
       <% @payments.each do |payment| %>
       <tr>
-        <td><%= payment.user_id %></td>
+        <td><%= payment.user.email %></td>
         <td><%= payment.other_id %></td>
         <td><%= payment.amount_paid %></td>
         <td><%= payment.description %></td>
