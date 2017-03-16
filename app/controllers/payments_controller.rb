@@ -6,6 +6,8 @@ class PaymentsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @like = Like.new
     @payment = Payment.find(params[:id])
 
     render("payments/show.html.erb")

@@ -16,6 +16,7 @@ class PaymentInformationsController < ApplicationController
   end
 
   def show
+    @user = User.new
     @payment_information = PaymentInformation.find(params[:id])
 
     render("payment_informations/show.html.erb")
