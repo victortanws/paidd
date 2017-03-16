@@ -19,7 +19,7 @@
 
       <% @payment_informations.each do |payment_information| %>
       <tr>
-        <td><%= payment_information.user_id %></td>
+        <td><%= payment_information.user.email %></td>
         <td><%= payment_information.name_on_card %></td>
         <td><%= payment_information.issuing_bank %></td>
         <td><%= payment_information.creditdebit_card_number %></td>
