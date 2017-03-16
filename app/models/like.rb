@@ -1,6 +1,8 @@
 class Like < ApplicationRecord
   # Direct associations
 
+  belongs_to :payment
+
   belongs_to :user
 
   # Indirect associations
