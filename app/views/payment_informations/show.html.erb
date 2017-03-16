@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @payment_information.user_id %></dd>
+      <dd>
+        <% if @payment_information.user.present? %>
+          <a href="/users/<%= @payment_information.user_id %>">
+            <%= @payment_information.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Name on card</dt>
       <dd><%= @payment_information.name_on_card %></dd>

@@ -12,7 +12,13 @@
       <dd><%= @user.password %></dd>
 
       <dt>Payment information</dt>
-      <dd><%= @user.payment_information_id %></dd>
+      <dd>
+        <% if @user.payment_information.present? %>
+          <a href="/payment_informations/<%= @user.payment_information_id %>">
+            <%= @user.payment_information.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Username</dt>
       <dd><%= @user.username %></dd>

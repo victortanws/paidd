@@ -18,8 +18,20 @@
       <% @debts.each do |debt| %>
       <tr>
         <td><%= debt.amount_debt %></td>
-        <td><%= debt.user.email %></td>
-        <td><%= debt.other.email %></td>
+        <td>
+          <% if debt.user.present? %>
+            <a href="/users/<%= debt.user.id %>">
+              <%= debt.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if debt.other.present? %>
+            <a href="/users/<%= debt.other.id %>">
+              <%= debt.other.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/debts/<%= debt.id %>" class="btn btn-primary">Show</a>
           <a href="/debts/<%= debt.id %>/edit" class="btn btn-warning">Edit</a>

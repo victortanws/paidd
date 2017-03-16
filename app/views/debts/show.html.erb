@@ -9,10 +9,22 @@
       <dd><%= @debt.amount_debt %></dd>
 
       <dt>User</dt>
-      <dd><%= @debt.user_id %></dd>
+      <dd>
+        <% if @debt.user.present? %>
+          <a href="/users/<%= @debt.user_id %>">
+            <%= @debt.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Other</dt>
-      <dd><%= @debt.other_id %></dd>
+      <dd>
+        <% if @debt.other.present? %>
+          <a href="/users/<%= @debt.other_id %>">
+            <%= @debt.other.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
