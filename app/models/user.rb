@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Direct associations
 
+  belongs_to :payment_information
+
   # Indirect associations
 
   # Validations
