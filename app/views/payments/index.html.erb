@@ -19,7 +19,7 @@
       <% @payments.each do |payment| %>
       <tr>
         <td><%= payment.user.email %></td>
-        <td><%= payment.other_id %></td>
+        <td><%= payment.debtorcreditor.email %></td>
         <td><%= payment.amount_paid %></td>
         <td><%= payment.description %></td>
         <td>
