@@ -1,4 +1,14 @@
 class PaymentInformationsController < ApplicationController
+  before_action :current_user_must_be_payment_information_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_payment_information_user
+    payment_information = PaymentInformation.find(params[:id])
+
+    unless current_user == payment_information.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @payment_informations = PaymentInformation.all
 

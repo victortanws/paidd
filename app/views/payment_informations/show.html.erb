@@ -26,12 +26,14 @@
       <a href="/payment_informations" class="btn btn-primary">
         Back
       </a>
-      <a href="/payment_informations/<%= @payment_information.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_payment_information/<%= @payment_information.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @payment_information.user %>
+        <a href="/payment_informations/<%= @payment_information.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_payment_information/<%= @payment_information.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>

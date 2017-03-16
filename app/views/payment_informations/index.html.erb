@@ -26,8 +26,11 @@
         <td><%= payment_information.type_of_card %></td>
         <td>
           <a href="/payment_informations/<%= payment_information.id %>" class="btn btn-primary">Show</a>
-          <a href="/payment_informations/<%= payment_information.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_payment_information/<%= payment_information.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == payment_information.user %>
+            <a href="/payment_informations/<%= payment_information.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_payment_information/<%= payment_information.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
