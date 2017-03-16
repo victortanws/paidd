@@ -42,7 +42,7 @@
           Other
         </label>
 
-        <input type="text" id="other_id" name="other_id" placeholder="Other" class="form-control" value="<%= @debt.other_id %>">
+        <%= select_tag(:other_id, options_from_collection_for_select(User.all, :id, :email, @debt.other_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
