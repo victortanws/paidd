@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @payment_information.errors.any? %>
+  <% @payment_information.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Payment Information #<%= @payment_information.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_payment_information/<%= @payment_information.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @payment_information.user_id %>">
+      </div>
+
+      <!-- Label and input for name_on_card -->
+      <div class="form-group">
+        <label for="name_on_card" class="control-label">
+          Name on card
+        </label>
+
+        <input type="text" id="name_on_card" name="name_on_card" placeholder="Name on card" class="form-control" value="<%= @payment_information.name_on_card %>">
+      </div>
+
+      <!-- Label and input for issuing_bank -->
+      <div class="form-group">
+        <label for="issuing_bank" class="control-label">
+          Issuing bank
+        </label>
+
+        <input type="text" id="issuing_bank" name="issuing_bank" placeholder="Issuing bank" class="form-control" value="<%= @payment_information.issuing_bank %>">
+      </div>
+
+      <!-- Label and input for creditdebit_card_number -->
+      <div class="form-group">
+        <label for="creditdebit_card_number" class="control-label">
+          Creditdebit card number
+        </label>
+
+        <input type="text" id="creditdebit_card_number" name="creditdebit_card_number" placeholder="Creditdebit card number" class="form-control" value="<%= @payment_information.creditdebit_card_number %>">
+      </div>
+
+      <!-- Label and input for type_of_card -->
+      <div class="form-group">
+        <label for="type_of_card" class="control-label">
+          Type of card
+        </label>
+
+        <input type="text" id="type_of_card" name="type_of_card" placeholder="Type of card" class="form-control" value="<%= @payment_information.type_of_card %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Payment Information
+      </button>
+      or
+      <a href="/payment_informations/<%= @payment_information.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
