@@ -20,7 +20,7 @@
       <tr>
         <td><%= user.email %></td>
         <td><%= user.password %></td>
-        <td><%= user.payment_information_id %></td>
+        <td><%= user.payment_information.user_id %></td>
         <td><%= user.username %></td>
         <td>
           <a href="/users/<%= user.id %>" class="btn btn-primary">Show</a>
