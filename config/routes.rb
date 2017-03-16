@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Debt resource:
+  # CREATE
+  get "/debts/new", :controller => "debts", :action => "new"
+  post "/create_debt", :controller => "debts", :action => "create"
+
+  # READ
+  get "/debts", :controller => "debts", :action => "index"
+  get "/debts/:id", :controller => "debts", :action => "show"
+
+  # UPDATE
+  get "/debts/:id/edit", :controller => "debts", :action => "edit"
+  post "/update_debt/:id", :controller => "debts", :action => "update"
+
+  # DELETE
+  get "/delete_debt/:id", :controller => "debts", :action => "destroy"
+  #------------------------------
+
   # Routes for the Payment resource:
   # CREATE
   get "/payments/new", :controller => "payments", :action => "new"
