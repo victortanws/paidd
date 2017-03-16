@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "likes#index"
   # Routes for the Debt resource:
   # CREATE
   get "/debts/new", :controller => "debts", :action => "new"
