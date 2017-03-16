@@ -1,6 +1,7 @@
 class DebtsController < ApplicationController
   def index
-    @debts = Debt.page(params[:page]).per(10)
+    @q = Debt.ransack(params[:q])
+    @debts = @q.result(:distinct => true).includes(:user, :other).page(params[:page]).per(10)
 
     render("debts/index.html.erb")
   end
