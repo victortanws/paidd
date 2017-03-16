@@ -33,7 +33,7 @@
           Payment
         </label>
 
-        <input type="text" id="payment_id" name="payment_id" placeholder="Payment" class="form-control" value="<%= @like.payment_id %>">
+        <%= select_tag(:payment_id, options_from_collection_for_select(Payment.all, :id, :user_id, @like.payment_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
